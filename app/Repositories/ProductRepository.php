@@ -44,4 +44,8 @@ class ProductRepository implements ProductRepositoryInterface
         ->leftJoin('product_details', 'product_details.id_product', '=', 'products.id')
         ->where('products.id',$id)->first();
     }
+
+    public function productNew (){
+        return product::orderByDesc('created_at')->limit(20)->get();
+    }
 }

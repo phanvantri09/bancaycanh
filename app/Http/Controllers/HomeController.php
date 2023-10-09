@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryItemRepositoryInterface;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\BlogRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
 use App\Repositories\ProductDetailRepositoryInterface;
 use App\Repositories\ProductImageRepositoryInterface;
-
+use App\Helpers\ConstCommon;
 class HomeController extends Controller
 {
     protected $categoryItemRepository;
@@ -16,18 +17,23 @@ class HomeController extends Controller
     protected $productRepository;
     protected $imageRepository;
     protected $productDetailRepository;
-    public function __construct(ProductDetailRepositoryInterface $productDetailRepository,ProductImageRepositoryInterface $imageRepository,ProductRepositoryInterface $productRepository, CategoryItemRepositoryInterface $categoryItemRepository, CategoryRepositoryInterface $categoryRepository)
+    protected $blogRepository;
+    public function __construct(BlogRepositoryInterface $blogRepository, ProductDetailRepositoryInterface $productDetailRepository,ProductImageRepositoryInterface $imageRepository,ProductRepositoryInterface $productRepository, CategoryItemRepositoryInterface $categoryItemRepository, CategoryRepositoryInterface $categoryRepository)
     {
         $this->categoryItemRepository = $categoryItemRepository;
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
         $this->imageRepository = $imageRepository;
         $this->productDetailRepository = $productDetailRepository;
+        $this->blogRepository = $blogRepository;
     }
 
     public function index()
     {
-        return view('user.page.home');
+        $product = $this->productRepository->all();
+        $productNew = $this->productRepository->productNew();
+        $project = $this->blogRepository->all();
+        return view('user.page.home', compact(['product', 'project', 'productNew']));
     }
 
     public function list_new()
@@ -58,7 +64,9 @@ class HomeController extends Controller
     }
     public function product_detail($id)
     {
-        return view('user.page.product_detail');
+        ConstCommon::autoPlusView($id);
+        $product = $this->blogRepository->show();
+        return view('user.page.product_detail', compact(['product']));
     }
     public function search(Request $request)
     {

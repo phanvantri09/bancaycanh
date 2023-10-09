@@ -20,7 +20,7 @@ class ConstCommon {
      const TypeUser = 111;
      const TypeAdmin = 222;
      const TypeSuperAdmin = 333;
-     const ListTypeCatogory = ['Danh mục cây'=>1, 'Dịch vụ' =>2, 'Tin tức'=>3];
+     const ListTypeCatogory = ['Danh mục cây'=>1, 'Dự án' =>2, 'Tin tức'=>3];
      const TypeImgae = ['slide' =>1, 'fixed' =>2 ];
 
     public static function getnameByTypeCategory($key){
@@ -58,6 +58,11 @@ class ConstCommon {
     public static function sendMailLinkPass($email, $content){
         $mail = new SendLinkMail($content);
         return Mail::to($email)->queue($mail);
+    }
+    public static function autoPlusView($id){
+        $product = product::find($id);
+        $product->view = $product->view+1;
+        return $product->save();
     }
 
 }

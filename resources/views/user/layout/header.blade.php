@@ -1,3 +1,13 @@
+
+@php
+   use App\Models\categoty;
+   use App\Models\categoty_item;
+
+   $category_item = categoty_item::all();
+   $categoryDanhMucCay = categoty::where('type',1)->get();
+   $categoryDuAn = categoty::where('type',2)->get();
+   $categoryTinTuc = categoty::where('type',3)->get();
+@endphp
 <header class="px-2 py-3 py-lg-0 px-sm-0">
     <div class="container">
         <div class="row align-items-center justify-content-between pt-lg-3 pt-0">
@@ -34,41 +44,48 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="d-block" title="Services">
+                        <a  class="d-block" title="Services">
                             <span>DANH MỤC CÂY</span>
                         </a>
                         <ul class="sub-menu list-unstyled p-0 m-0">
+                            @foreach ($categoryDanhMucCay as $categoryDMC)
                             <li>
-                                <a href="#" class="d-block text-success" title="SERVICE 1">
-                                    <span>CÂY CÔNG TRÌNH</span>
+                                <a href="{{ route('list_product', ['type'=>$categoryDMC->id]) }}" class="d-block text-success" title="SERVICE 1">
+                                    <span>{{$categoryDMC->name}}</span>
                                 </a>
+                                @php
+                                    $categoryDMCItem = categoty_item::where('id_category', $categoryDMC->id)->get();
+                                @endphp
                                 <ul class="list-unstyled p-0 m-0">
-                                    <li>
-                                        <a href="#" class="d-block" title="SERVICE 1">
-                                            <span>Cây Ăn Quả</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-block" title="SERVICE 1">
-                                            <span>Cây Trong Nhà</span>
-                                        </a>
-                                    </li>
+                                    @foreach ($categoryDMCItem as $item)
+                                        <li>
+                                            <a href="{{ route('list_product', ['type_item'=>$item->id]) }}" class="d-block" title="SERVICE 1">
+                                                <span>{{$item->name}}</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
+                            @endforeach
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('list_new', ['type'=>3]) }}" class="d-block" title="Services">
+                            <span>TIN TỨC</span>
+                        </a>
+                        <ul class="sub-menu list-unstyled p-0 m-0">
+                            @foreach ($categoryTinTuc as $categoryTT)
                             <li>
-                                <a href="#" class="d-block text-success" title="SERVICE 1">
-                                    <span>CÂY CẢNH TRONG NHÀ</span>
+                                <a href="{{ route('list_new', ['type'=>3]) }}" class="d-block text-success" title="SERVICE 1">
+                                    <span>{{$categoryTT->name}}</span>
                                 </a>
                             </li>
+                            @endforeach
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="d-block" title="About">
-                            <span>TIN TỨC</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="d-block" title="Blog">
+                        <a href="{{ route('list_project', ['type'=>2]) }}" class="d-block" title="About">
                             <span>DỰ ÁN</span>
                         </a>
                     </li>
