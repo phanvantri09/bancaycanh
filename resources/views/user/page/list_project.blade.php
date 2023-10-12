@@ -10,126 +10,26 @@
         </div>
 
         <div class="row my-2 p-1">
+            @foreach ($list_project as $item)
             <div class="col-md-4 col-sm-6 col-12 mb-4">
                 <div class="new-card box-shadow rounded bg-white p-2 pb-3">
                     <a href="">
                         <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
+                            <img class="inner-img" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}"
                             alt="">
                         </div>
                     </a>
                     <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
+                        <div class="new-type pt-2 ">{{\App\Helpers\ConstCommon::getnameByIDCategory($item->id_category) }}</div>
                     </a>
                     <a href="">
-                        <div class="new-title">Cây tre vàng</div>
+                        <div class="new-title">{{$item->name}}</div>
                     </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
+                    <p class="new-content">{{$item->content_pre}}</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 mb-4">
-                <div class="new-card box-shadow rounded bg-white p-2 pb-3">
-                    <a href="">
-                        <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                            alt="">
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                    </a>
-                    <a href="">
-                        <div class="new-title">Cây tre vàng</div>
-                    </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 mb-4">
-                <div class="new-card box-shadow rounded bg-white p-2 pb-3">
-                    <a href="">
-                        <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                            alt="">
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                    </a>
-                    <a href="">
-                        <div class="new-title">Cây tre vàng</div>
-                    </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 mb-4">
-                <div class="new-card box-shadow rounded bg-white p-2 pb-3">
-                    <a href="">
-                        <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                            alt="">
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                    </a>
-                    <a href="">
-                        <div class="new-title">Cây tre vàng</div>
-                    </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 mb-4">
-                <div class="new-card box-shadow rounded bg-white p-2 pb-3">
-                    <a href="">
-                        <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                            alt="">
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                    </a>
-                    <a href="">
-                        <div class="new-title">Cây tre vàng</div>
-                    </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 mb-4">
-                <div class="new-card box-shadow rounded bg-white p-2 pb-3">
-                    <a href="">
-                        <div class="img-wrapper">
-                            <img class="inner-img" src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                            alt="">
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                    </a>
-                    <a href="">
-                        <div class="new-title">Cây tre vàng</div>
-                    </a>
-                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                        perspiciatis iure.</p>
-                </div>
-            </div>
+            @endforeach
+
 
 
         </div>

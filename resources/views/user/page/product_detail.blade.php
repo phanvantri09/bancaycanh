@@ -12,28 +12,27 @@
                 <div class="row p-2">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2">
                         <div class="slider-for">
-                            <img src="https://cayxanhmientrung.com/wp-content/uploads/2023/02/anh-cay-xanh-1.jpg"
+                            <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($product->img) }}"
                                 alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-008.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-006.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-008.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-006.jpg" alt="">
+                            @foreach ($image as $item)
+                            <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img_url) }}"
+                                alt="">
+                            @endforeach
 
                         </div>
                         <div class="slider-nav py-2">
-                            <img src="https://cayxanhmientrung.com/wp-content/uploads/2023/02/anh-cay-xanh-1.jpg"
+                            <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($product->img) }}"
                                 alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-008.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-006.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-008.jpg" alt="">
-                            <img src="https://vapa.vn/wp-content/uploads/2022/12/hinh-nen-cay-xanh-006.jpg" alt="">
-
+                            @foreach ($image as $item)
+                            <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img_url) }}"
+                                alt="">
+                            @endforeach
                         </div>
 
 
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2 d-flex flex-column justify-content-between">
-                        <h3 class="text-success mb-4">CÂY BỒ KẾT</h3>
+                        <h3 class="text-success mb-4">{{$product->name}}</h3>
                         <ul>
                             <li><b>Giá tốt so với thị trường</b></li>
                             <li><b>Giao hàng toàn quốc</b> (phí theo đơn hàng)</li>
@@ -82,10 +81,6 @@
                                     <div class="modal-body">
                                         ...
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,30 +103,8 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content border-top mt-2">
-                        <div class="tab-pane container active" id="mota">
-                            Cây Bồ Kết một cái tên gắn liền với 2 chữ quê hương, có ý nghĩa đặc biệt trong tiềm thức của bao
-                            thế hệ Việt Nam. Mùi thơm ngai ngái của quả Bồ Kết hòa với hương lá bưởi, lá xả thơm nồng mang
-                            tấm lòng thơm thảo của mình để giữ gìn mái tóc cho bao thế hệ các bà, các mẹ và những người con
-                            gái quê.
-
-                            “… Hương bồ kết chính là hương quê mẹ
-
-                            Em giữ giùm trên mái tóc đông phương
-
-                            Trên tóc mẹ – anh nghe từ thuở bé
-
-                            Cái mùi thơm kỳ diệu của quê hương….”
-
-                            Trước dòng chảy của thời đại, hình ảnh cây Bồ Kết không còn phổ biến như trước. Có nhiều người,
-                            đặc biệt là các bạn trẻ không biết đến loài cây này, hoặc có biết nhưng không nắm rõ tác dụng, ý
-                            nghĩa, cách trồng và chăm sóc của nó.
-
-                            Bài viết dưới đây, với tư cách là một đơn vị mua bán cây Bồ Kết trồng công trình có kinh nghiệm
-                            và am hiểu nhất định về cây, chúng tôi sẽ giới thiệu thật tường tận. Mời Quý vị cùng theo dõi!
-
-
-                        </div>
-                        <div class="tab-pane container fade" id="thongtinbosung">...</div>
+                        <div class="tab-pane container active" id="mota">{!!$product->description!!}</div>
+                        <div class="tab-pane container fade" id="thongtinbosung">{!!$product->info_bonus!!}</div>
                     </div>
                 </div>
             </div>

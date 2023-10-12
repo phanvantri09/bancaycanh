@@ -32,13 +32,30 @@ class HomeController extends Controller
     {
         $product = $this->productRepository->all();
         $productNew = $this->productRepository->productNew();
-        $project = $this->blogRepository->all();
-        return view('user.page.home', compact(['product', 'project', 'productNew']));
+        $IDcategory = $this->categoryRepository->getAllPluckID(1);
+        $cacheProductCategoryItems = [];
+        foreach ($IDcategory as $key => $IDcatego) {
+            $cacheProductCategoryItems[$IDcatego] = $this->categoryItemRepository->getAllPluckIDAray([$IDcatego]);
+        }
+        // $IDcategoryItem = $this->categoryItemRepository->getAllPluckIDAray($IDcategory);
+        // dd($cacheProductCategoryItems);
+        $cacheProductCategory = [];
+        // foreach ($IDcategory as $key => $IDcategor) {
+            // $cacheProductCategory[$cacheProductCategoryItem] = ;
+            foreach ($cacheProductCategoryItems as $key => $cacheProductCategoryItem) {
+                foreach ($cacheProductCategoryItem as $keyyy => $valueCacheProductCategoryItem) {
+                    $cacheProductCategory[$key][$valueCacheProductCategoryItem] =  $this->productRepository->getAllCategoryItem($valueCacheProductCategoryItem);
+                }
+            }
+        // }
+        // dd($cacheProductCategory);
+        return view('user.page.home', compact(['product', 'productNew', 'cacheProductCategory']));
     }
 
     public function list_new()
     {
-        return view('user.page.list_new');
+        $list_new = $this->blogRepository->getAllByTypeCategory(3);
+        return view('user.page.list_new', compact(['list_new']));
     }
 
     public function new_item($id_category)
@@ -48,7 +65,8 @@ class HomeController extends Controller
 
     public function list_project()
     {
-        return view('user.page.list_project');
+        $list_project = $this->blogRepository->getAllByTypeCategory(2);
+        return view('user.page.list_project', compact(['list_project']));
     }
     public function list_product()
     {
@@ -65,8 +83,9 @@ class HomeController extends Controller
     public function product_detail($id)
     {
         ConstCommon::autoPlusView($id);
-        $product = $this->blogRepository->show();
-        return view('user.page.product_detail', compact(['product']));
+        $product = $this->productRepository->showInfoProduct($id);
+        $image = $this->imageRepository->getAllByIDProductItem($id);
+        return view('user.page.product_detail', compact(['product','image']));
     }
     public function search(Request $request)
     {

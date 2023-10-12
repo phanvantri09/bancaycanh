@@ -36,4 +36,7 @@ class BlogRepository implements BlogRepositoryInterface
     public function getAllByType($type){
         return blog::where('type', $type)->get();
     }
+    public function getAllByTypeCategory($type){
+        return blog::select('blogs.*','categoties.name as namecategory')->leftJoin('categoties', 'categoties.id', 'blogs.id_category')->where('categoties.type', $type)->get();
+    }
 }

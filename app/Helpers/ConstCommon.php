@@ -12,7 +12,7 @@ use App\Mail\SendMail;
 use App\Mail\SendLinkMail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Cart;
+use App\Models\product;
 use App\Models\Box_item;
 use App\Models\Transaction;
 class ConstCommon {
