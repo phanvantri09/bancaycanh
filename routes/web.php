@@ -6,12 +6,13 @@ Route::group(['prefix' => '/'], function () {
         Route::controller(HomeController::class)->group(function () {
             // danh sách
             Route::get('/','index')->name('home');
-            Route::get('/tin-tuc/{id}','new_item')->name('new_item');
+            Route::get('/chi-tiet-bai-dang/{id}','content_new')->name('content_new');
             Route::get('/danh-sach-tin-tuc','list_new')->name('list_new');
             Route::get('/danh-sach-du-an','list_project')->name('list_project');
             Route::get('/danh-sach-san-pham','list_product')->name('list_product');
 
             Route::get('/lien-he','contact')->name('contact');
+            Route::get('/gioi-thieu','introduce')->name('introduce');
             Route::post('/lien-he-post','contactPost')->name('contactPost');
 
             Route::get('/chi-tiet-san-pham/{id}','product_detail')->name('product_detail');

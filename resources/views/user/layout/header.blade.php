@@ -90,12 +90,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="d-block" title="Blog">
+                        <a href="{{ route('introduce') }}" class="d-block" title="Blog">
                             <span>GIỚI THIỆU</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="d-block" title="Contact">
+                        <a href="{{ route('contact') }}" class="d-block" title="Contact">
                             <span>LIÊN HỆ</span>
                         </a>
                     </li>

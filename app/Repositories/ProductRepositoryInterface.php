@@ -10,4 +10,6 @@ interface ProductRepositoryInterface
      public function show($id);
      public function getAllByType($type);
      public function showInfoProduct($id);
+     public function getAllCategoryItemBlog($id);
+     public function getAllCategoryItem($key, $id);
 }

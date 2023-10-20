@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\product;
 use App\Models\Box_item;
+use App\Models\blog;
 use App\Models\Transaction;
 class ConstCommon {
      const ListTypeUser = ['user'=>111, 'admin'=>222, 'super_admin'=>333];
@@ -32,7 +33,9 @@ class ConstCommon {
     public static function getnameByIDCategoryItem($id){
         return Categoty_item::find($id)->name ?? null;
     }
-
+    public static function getTypeByCategoy($id){
+        return Categoty::find($id)->type ?? null;
+    }
      public static function getAllCategory(){
           return Categoty::all();
      }
@@ -64,5 +67,4 @@ class ConstCommon {
         $product->view = $product->view+1;
         return $product->save();
     }
-
 }

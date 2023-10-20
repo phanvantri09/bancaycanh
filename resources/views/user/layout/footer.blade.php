@@ -60,9 +60,10 @@
             <div class="col-md-5 col-sm-12 col-12">
                 <h5 class="text-success">Liên hệ chúng tôi</h5>
                 <div class="footer-content">
-                    <p><b>Địa chỉ:</b> 272 Nguyễn Văn Giáp, Cầu Diễn, Từ Liêm, Hà Nội, 100000</p>
-                    <p><b>SĐT:</b> 0372838221</p>
-                    <p><b>Email:</b> abc@gmail.com</p>
+                    <p>Công ty TNHH KD&XD Long Nguyên</p>
+                    <p><b>Địa chỉ:</b> Tổ 13, thôn Tú Ngọc B, Xã Bình Tú, Huyện Thăng Bình, Tỉnh Quảng Nam</p>
+                    <p><b>SĐT:</b> 0968060303</p>
+                    <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
                     <p><b>Ngày Làm Việc:</b> <i>Thứ Hai – CN</i></p>
                     <p><b>Giờ Làm Việc:</b> <i>08:00 – 21:00</i></p>
                 </div>

@@ -9,4 +9,6 @@ interface BlogRepositoryInterface
      public function delete($id);
      public function show($id);
      public function getAllByType($type);
+     public function getAllCategoryItemBlog($key);
+     public function getAllByCategory($type);
 }

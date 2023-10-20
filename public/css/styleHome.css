@@ -1,3 +1,6 @@
+body{
+    font-family: "Segoe UI", Arial, sans-serif
+}
 a:hover {
     text-decoration: none;
 }
@@ -501,6 +504,7 @@ body {
 
 .new-card .img-wrapper .inner-img {
     transition: 0.5s;
+    width: 100%;
 }
 
 .new-card .img-wrapper .inner-img:hover {
@@ -841,9 +845,16 @@ body {
 .slick-next.slick-arrow {
     right: 0;
 }
+.barner-introduce img, .content-new img, .content-new img{
+    width: 100%;
+    height: 500px;
+}
 @media (min-width: 992px) and (max-width: 1440px) {
     .slider-for img {
         height: 550px;
+    }
+    .barner-introduce img, .content-new img{
+        height: 480px;
     }
 }
 @media (min-width: 767px) and (max-width: 992px) {
@@ -853,6 +864,9 @@ body {
     .slider-nav img {
         height: 120px;
     }
+    .barner-introduce img, .content-new img{
+        height: 450px;
+    }
 }
 @media (min-width: 576px) and (max-width: 767px) {
     .slider-for img {
@@ -861,6 +875,9 @@ body {
     .slider-nav img {
         height: 100px;
     }
+    .barner-introduce img, .content-new img{
+        height: 320px;
+    }
 }
 @media (max-width: 576px) {
     .slider-for img {
@@ -868,6 +885,9 @@ body {
     }
     .slider-nav img {
         height: 80px;
+    }
+    .barner-introduce img, .content-new img{
+        height: 250px;
     }
 }
 .chat-zalo {

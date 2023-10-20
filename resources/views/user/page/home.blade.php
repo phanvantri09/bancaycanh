@@ -40,14 +40,14 @@
             <!-- sleder end -->
             <div class="bg-white my-2">
                 <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                    <h2>Cây Nổi Bật</h2>
-                    <a href="" class="text-success">Xem thêm cây>></a>
+                    <h2 class="text-success">Cây Nổi Bật</h2>
+                    <a href="{{ route('list_product') }}" class="text-success">Xem thêm cây>></a>
                 </div>
                 <div class="row p-1">
                     @foreach ($productNew as $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 col-6 py-2">
                             <div class="product-card">
-                                <a href="">
+                                <a href="{{ route('product_detail', ['id' => $item->id]) }}">
                                     <img src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}"
                                         alt="">
                                     <div class="product-title py-2 px-1">{{ $item->name }}</div>
@@ -138,9 +138,9 @@
                 $index = 0;
             @endphp
             @foreach ($cacheProductCategory as $keyy => $cacheProductCatego)
-            @php
-                $index++;
-            @endphp
+                @php
+                    $index++;
+                @endphp
                 <div class="bg-white my-2">
                     <div class="d-lg-flex d-block justify-content-between align-items-center p-2">
                         <h2 class="text-success">{{ \App\Helpers\ConstCommon::getnameByIDCategory($keyy) }}</h2>
@@ -267,7 +267,8 @@
                                     @endforeach
 
                                 </div>
-                                <a href="{{ route('list_product') }}" class="d-flex justify-content-center py-3">
+                                <a href="{{ route('list_product', ['category_item' => $keyyy]) }}"
+                                    class="d-flex justify-content-center py-3">
                                     <button class="btn btn-see-more-product d-flex align-items-center py-3 px-4">
                                         Xem danh mục &nbsp;
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -283,7 +284,7 @@
 
                 </div>
 
-                @if ( ($index) < count($cacheProductCategory) )
+                @if ($index < count($cacheProductCategory))
                     <div class="bg-white my-2">
                         <div class="d-md-flex d-block baner-introduction">
                             <div class="col-md-6 col-sm-12 px-0 py-md-0 pb-2 baner-introduction-border">
@@ -297,63 +298,77 @@
                         </div>
                     </div>
                 @endif
-
             @endforeach
 
             <div class="bg-white my-2">
                 <div class="d-lg-flex d-block justify-content-between align-items-center py-md-2 py-0 px-2">
-                    <h2>Tin tức - Sự kiện</h2>
+                    <h2 class="text-success">Tin tức - Sự kiện</h2>
                     <!-- Nav tabs -->
+                    @php
+                        $countttt = 0;
+                    @endphp
                     <ul class="nav nav-tabs tabs-head" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#new1">Category 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#new2">Category 2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#new3">Category 3</a>
-                        </li>
+                        @foreach ($cacheBlogCategoryItems as $key => $item)
+                            @php
+                                $countttt++;
+                            @endphp
+                            <li class="nav-item">
+                                <a class="nav-link {{ $countttt > 1 ? '' : 'active' }}" data-toggle="tab"
+                                    href="#new{{ $key }}">{{ \App\Helpers\ConstCommon::getnameByIDCategory($key) }}</a>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div id="new1" class="container tab-pane active">
-                        <div class="row p-1">
-                            <div class="col-md-4 col-sm-6 col-12 py-2">
-                                <div class="new-card">
-                                    <a href="">
-                                        <div class="img-wrapper">
-                                            <img class="inner-img"
-                                                src="https://www.canhquanxanh.com.vn/images/images/news/loiichcayxanh_3_.jpg"
-                                                alt="">
+                    @php
+                        $countCC = 0;
+                    @endphp
+                    @foreach ($cacheBlogCategoryItems as $key => $item)
+                        @php
+                            $countCC++;
+                        @endphp
+                        <div id="new{{ $key }}"
+                            class="container tab-pane {{ $countCC > 1 ? 'fade' : 'active' }}">
+                            <div class="row p-1">
+                                @foreach ($item as $itm)
+                                    <div class="col-md-4 col-sm-6 col-12 py-2">
+                                        <div class="new-card">
+                                            <a href="{{ route('content_new', ['id'=>$itm->id]) }}">
+                                                <div class="img-wrapper">
+                                                    <img class="inner-img"
+                                                        src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($itm->img) }}"
+                                                        alt="">
+                                                </div>
+                                            </a>
+                                            <a href="{{ route('list_new', ['category'=>$key]) }}">
+                                                <div class="new-type pt-2 ">
+                                                    {{ \App\Helpers\ConstCommon::getnameByIDCategory($key) }}</div>
+                                            </a>
+                                            <a href="{{ route('content_new', ['id'=>$itm->id]) }}">
+                                                <div class="new-title">{{ $itm->name ?? null }}</div>
+                                            </a>
+                                            <p class="new-content">{!! $itm->comtent_pre ?? null !!}</p>
                                         </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="new-type pt-2 ">Kiến thức chăm sóc cây</div>
-                                    </a>
-                                    <a href="">
-                                        <div class="new-title">Cây tre vàng</div>
-                                    </a>
-                                    <p class="new-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                                        quae pariatur voluptatem exercitationem inventore fugiat animi, voluptas sunt
-                                        libero consequatur unde molestias rem illo deserunt qui dolorem tempora
-                                        perspiciatis iure.</p>
-                                </div>
+                                    </div>
+                                @endforeach
                             </div>
+
+                            <a href="{{ route('list_new', ['category'=>$key]) }}" class="d-flex justify-content-center py-3">
+                                <button class="btn btn-see-more-new  d-flex align-items-center py-3 px-4">
+                                    Xem thêm &nbsp;
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                                    </svg>
+                                </button>
+                            </a>
                         </div>
-                        <a href="#" class="d-flex justify-content-center py-3">
-                            <button class="btn btn-see-more-new  d-flex align-items-center py-3 px-4">
-                                Xem thêm &nbsp;
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
+                    @endforeach
+
                     <div id="new2" class="container tab-pane fade">
                         fsdr
                     </div>

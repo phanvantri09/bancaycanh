@@ -37,48 +37,84 @@ class HomeController extends Controller
         foreach ($IDcategory as $key => $IDcatego) {
             $cacheProductCategoryItems[$IDcatego] = $this->categoryItemRepository->getAllPluckIDAray([$IDcatego]);
         }
-        // $IDcategoryItem = $this->categoryItemRepository->getAllPluckIDAray($IDcategory);
-        // dd($cacheProductCategoryItems);
         $cacheProductCategory = [];
-        // foreach ($IDcategory as $key => $IDcategor) {
-            // $cacheProductCategory[$cacheProductCategoryItem] = ;
-            foreach ($cacheProductCategoryItems as $key => $cacheProductCategoryItem) {
-                foreach ($cacheProductCategoryItem as $keyyy => $valueCacheProductCategoryItem) {
-                    $cacheProductCategory[$key][$valueCacheProductCategoryItem] =  $this->productRepository->getAllCategoryItem($valueCacheProductCategoryItem);
-                }
+        foreach ($cacheProductCategoryItems as $key => $cacheProductCategoryItem) {
+            foreach ($cacheProductCategoryItem as $keyyy => $valueCacheProductCategoryItem) {
+                $cacheProductCategory[$key][$valueCacheProductCategoryItem] =  $this->productRepository->getAllCategoryItem($key, $valueCacheProductCategoryItem);
             }
-        // }
-        // dd($cacheProductCategory);
-        return view('user.page.home', compact(['product', 'productNew', 'cacheProductCategory']));
+        }
+        $IDcategoryBlog = $this->categoryRepository->getAllPluckID(3);
+        // dd($IDcategoryBlog);
+        $cacheBlogCategoryItems = []; //
+        foreach ($IDcategoryBlog as $key => $IDcatego) {
+            $cacheBlogCategoryItems[$IDcatego] = $this->blogRepository->getAllCategoryItemBlog($IDcatego);
+        }
+        // dd($cacheBlogCategoryItems);
+        return view('user.page.home', compact(['product', 'productNew', 'cacheProductCategory', 'cacheBlogCategoryItems']));
     }
 
-    public function list_new()
+    public function list_new(Request $request)
     {
-        $list_new = $this->blogRepository->getAllByTypeCategory(3);
-        return view('user.page.list_new', compact(['list_new']));
+        $list_new = [];
+        $linkCategory = false;
+        $idCate =  null;
+        if ($request->has('category')) {
+            $linkCategory = true;
+            $idCate = $request->category;
+            $list_new  = $this->blogRepository->getAllByCategory($request->category);
+        } else  {
+            $list_new = $this->blogRepository->getAllByTypeCategory(3);
+        }
+        return view('user.page.list_new', compact(['list_new', 'linkCategory', 'idCate']));
     }
 
-    public function new_item($id_category)
+    public function list_project(Request $request)
     {
-        return view('user.page.new_item');
+        $list_project = [];
+        $linkCategory = false;
+        $idCate =  null;
+        if ($request->has('category')) {
+            $linkCategory = true;
+            $idCate = $request->category;
+            $list_project  = $this->blogRepository->getAllByCategory($request->category);
+        } else  {
+            $list_project = $this->blogRepository->getAllByTypeCategory(2);
+        }
+        return view('user.page.list_project', compact(['list_project', 'linkCategory', 'idCate']));
     }
-
-    public function list_project()
+    public function list_product(Request $request)
     {
-        $list_project = $this->blogRepository->getAllByTypeCategory(2);
-        return view('user.page.list_project', compact(['list_project']));
-    }
-    public function list_product()
-    {
-        return view('user.page.list_product');
+        // Thiếu category
+        $category_item = [];
+        if ($request->has('category_item')) {
+            $category_item =  $this->categoryItemRepository->show($request->category_item);
+            $product = $this->productRepository->getAllByType($request->category_item);
+        } else {
+            $product = $this->productRepository->all();
+        }
+        return view('user.page.list_product', compact(['product', 'category_item']));
     }
     public function contact()
     {
         return view('user.page.contact');
     }
+    public function introduce()
+    {
+        return view('user.page.introduce');
+    }
     public function contactPost(Request $request)
     {
         return view('user.page.home');
+    }
+    public function content_new($id)
+    {
+        $blogs = $this->blogRepository->show($id);
+        return view('user.page.content_new', compact(['blogs']));
+    }
+    public function content_project($id)
+    {
+        $blogs = $this->blogRepository->show($id);
+        return view('user.page.content_new', compact(['blogs']));
     }
     public function product_detail($id)
     {

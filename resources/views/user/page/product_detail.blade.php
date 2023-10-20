@@ -5,7 +5,7 @@
     <main>
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-                <a href="">Trang chủ</a> / <a href="">Cây công Trình</a> / <a href="">Cây ăn quả</a>
+                <a href="{{ route('home') }}">Trang chủ</a> / <a href="">Cây công Trình</a> / <a href="{{ route('product_detail', ['id'=>$product->id]) }}">{{$product->name}}</a>
             </div>
 
             <div class="bg-white my-2 rounded product-detail">
@@ -103,8 +103,8 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content border-top mt-2">
-                        <div class="tab-pane container active" id="mota">{!!$product->description!!}</div>
-                        <div class="tab-pane container fade" id="thongtinbosung">{!!$product->info_bonus!!}</div>
+                        <div class="tab-pane container active py-1 py-md-3" id="mota">{!!$product->description!!}</div>
+                        <div class="tab-pane container fade py-1 py-md-3" id="thongtinbosung">{!!$product->info_bonus!!}</div>
                     </div>
                 </div>
             </div>

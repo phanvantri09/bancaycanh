@@ -33,10 +33,13 @@ class ProductRepository implements ProductRepositoryInterface
         return product::findOrFail($id);
     }
     public function getAllByType($type){
-        return product::where('type', $type)->get();
+        return product::where('id_category_item', $type)->get();
     }
-    public function getAllCategoryItem($id){
-        return product::where('id_category_item', $id)->limit(12)->get();
+    public function getAllCategoryItem($key, $id){
+        return product::where('id_category', $key)->where('id_category_item', $id)->limit(12)->get();
+    }
+    public function getAllCategoryItemBlog($key){
+        return product::where('id_category', $key)->limit(12)->get();
     }
     public function search($key){
         return product::where('name', 'LIKE', '%'.$key.'%')->get();
@@ -49,6 +52,6 @@ class ProductRepository implements ProductRepositoryInterface
     }
 
     public function productNew (){
-        return product::orderByDesc('created_at')->limit(20)->get();
+        return product::orderByDesc('created_at')->limit(12)->get();
     }
 }
