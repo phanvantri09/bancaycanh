@@ -46,16 +46,23 @@ class ContactController extends Controller
 
     public function store(CreateRequest $request)
     {
+        // dd($request->all());
         DB::beginTransaction();
         try {
-            $this->contactRepository->create($request->all());
+            $data = ['name' => $request->name ?? null,
+            'email' => $request->email ?? null ,
+            'tel' => $request->tel ?? null,
+            'content' => $request->content ?? null,
+            'status' => 1
+        ];
+            $this->contactRepository->create($data);
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollback();
             dd($th);
             return redirect()->back()->with('error', 'Đã xảy ra lỗi vui lòng nhập lại');
         }
-        return redirect()->route('contact.index')->with('success', 'Thành công');
+        return redirect()->back()->with('success', 'Thành công');
 
     }
 
@@ -77,4 +84,16 @@ class ContactController extends Controller
         $this->contactRepository->delete($id);
         return redirect()->route('contact.index')->with('success', 'Xóa thành công');
     }
+
+    public function changeStatus($id, $status)
+    {
+
+        if ($this->contactRepository->changeStatus($id, $status)) {
+            return back()->with('message', 'Thành Công');
+        } else {
+            return back()->with('error', 'Lỗi tiến trình');
+        }
+
+    }
+
 }

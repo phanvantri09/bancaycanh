@@ -5,7 +5,10 @@
     <main>
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-                <a href="{{ route('home') }}">Trang chủ</a> / <a href="">Cây công Trình</a> / <a href="{{ route('product_detail', ['id'=>$product->id]) }}">{{$product->name}}</a>
+                <a href="{{ route('home') }}">Trang chủ</a> /
+                <a href="{{ route('list_product', ['category'=>$product->id_category]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}</a> /
+                <a href="{{ route('list_product', ['category_item'=>$product->id_category_item]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</a> /
+                <a href="{{ route('product_detail', ['id'=>$product->id]) }}">{{$product->name}}</a>
             </div>
 
             <div class="bg-white my-2 rounded product-detail">
@@ -28,11 +31,14 @@
                                 alt="">
                             @endforeach
                         </div>
-
-
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2 d-flex flex-column justify-content-between">
-                        <h3 class="text-success mb-4">{{$product->name}}</h3>
+                        <div class="d-flex justify-content-between">
+                            <h3 class="text-success mb-4">{{$product->name}}</h3>
+                            <span class="text-grey">
+                                {{$product->view}} lượt xem
+                            </span>
+                        </div>
                         <ul>
                             <li><b>Giá tốt so với thị trường</b></li>
                             <li><b>Giao hàng toàn quốc</b> (phí theo đơn hàng)</li>
@@ -84,8 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p><span class="font-weight-bold text-success">Danh mục: </span>Cây Bóng Mát, Cây Công Trình, Cây
-                            Tâm Linh</p>
+                        <p><span class="font-weight-bold text-success">Danh mục: </span>{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}, {{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</p>
 
                     </div>
                 </div>

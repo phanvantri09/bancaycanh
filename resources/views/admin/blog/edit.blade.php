@@ -71,20 +71,6 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
-                                <div class="form-group">
-                                    <label>Loại thành phần</label>
-                                    <select name="id_category_item" class="form-control">
-                                        @foreach ($id_category_item as $key => $item)
-                                            <option {{$item->id ==$data->id_category_item ? 'selected' : ''}} value="{{ $item->id }}"> {{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @error('id_category_item')
-                                    <div class="alert alert-danger">{{ $errors->first('id_category_item') }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-sm-12">
-                                <!-- select -->
                                 <img height="200px" width="230px" src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($data->img ?? null) }}" alt="">
 
                                 <div class="form-group">

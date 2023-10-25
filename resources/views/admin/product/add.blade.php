@@ -34,9 +34,7 @@
                                 <div class="form-group">
                                     <label>Nội dung</label>
 
-                                    <textarea class="form-control" name="content_pre" rows="3" placeholder="Enter ...">
-                                        {{ empty(old('content_pre')) ? '' : old('content_pre') }}
-                                    </textarea>
+                                    <textarea class="form-control" name="content_pre" rows="3" placeholder="Enter ...">{{ empty(old('content_pre')) ? '' : old('content_pre') }}</textarea>
                                     @error('content_pre')
                                         <div class="alert alert-danger">{{ $errors->first('content_pre') }}</div>
                                     @enderror
@@ -44,7 +42,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
@@ -59,7 +57,7 @@
                                     <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- select -->
@@ -67,7 +65,7 @@
                                     <label>Loại thành phần</label>
                                     <select name="id_category_item" class="form-control">
                                         @foreach ($id_category_item as $key => $item)
-                                            <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                            <option value="{{ $item->id }}"> {{\App\Helpers\ConstCommon::getnameByIDCategory($item->id_category)}} | {{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

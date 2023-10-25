@@ -17,10 +17,10 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->integer('id_category');
-            $table->integer('id_category_item')->nullable();
             $table->string('img')->nullable();
             $table->text('content_pre')->nullable();
             $table->text('content_main')->nullable();
+            $table->integer('view')->default(0);
             $table->timestamps();
         });
     }

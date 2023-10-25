@@ -154,6 +154,7 @@ Route::group(['prefix' => 'admin'], function () {
 
             // hiển thị tất cả
             Route::get('/show/{id}', 'show')->name('show');
+            Route::get('change_status/{id}/{status}','changeStatus')->name('changeStatus');
         });
     });
     Route::group(['prefix' => 'user', 'as' =>'user.'], function () {

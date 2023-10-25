@@ -2,23 +2,33 @@
     <div class="bg-white my-3 p-2">
         <h4 class="text-success">Điền thông tin của bạn để nhận báo giá ưu đãi - Chúng tôi sẽ gọi lại ngay !
         </h4>
-        <form action="">
+        <form action="{{ route('contact.addPost') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="form-row">
                 <div class="form-group col-md-6 col-12">
                     <label for="inputName">Họ và tên</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Họ và tên">
+                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Họ và tên">
+                    @error('name')
+                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                @enderror
                 </div>
                 <div class="form-group col-md-6 col-12">
                     <label for="inputSdt">Số điện thoại</label>
-                    <input type="tel" class="form-control" id="inputSdt" placeholder="039*******">
+                    <input type="tel" name="tel" class="form-control" id="inputSdt" placeholder="039*******">
+                    @error('tel')
+                    <div class="alert alert-danger">{{ $errors->first('tel') }}</div>
+                @enderror
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="exampleContent">Lời nhắn</label>
-                <textarea class="form-control" id="exampleFormContent" rows="3"></textarea>
+                <textarea name="content" class="form-control" id="exampleFormContent" rows="3"></textarea>
+                @error('content')
+                <div class="alert alert-danger">{{ $errors->first('content') }}</div>
+            @enderror
             </div>
-            <button class="btn bg-success text-white font-weight-bold px-4 py-2 mb-2">GỬI</button>
+            <button type="submit" class="btn bg-success text-white font-weight-bold px-4 py-2 mb-2">GỬI</button>
         </form>
         <div class="bg-success-dark p-3 rounded">
             <div class="row align-items-center">

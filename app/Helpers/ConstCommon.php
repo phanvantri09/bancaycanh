@@ -67,4 +67,9 @@ class ConstCommon {
         $product->view = $product->view+1;
         return $product->save();
     }
+    public static function autoPlusViewBlog($id){
+        $product = blog::find($id);
+        $product->view = $product->view+1;
+        return $product->save();
+    }
 }

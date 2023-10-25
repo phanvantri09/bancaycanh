@@ -26,7 +26,6 @@
                                 <th>stt</th>
                                 <th>Tiêu đề</th>
                                 <th>Loại </th>
-                                <th>Loại thành phần</th>
                                 <th>Nội dung xem trước </th>
                                 <th>Ảnh </th>
                                 <th></th>
@@ -38,7 +37,6 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{ \App\Helpers\ConstCommon::getnameByIDCategory($item->id_category) }}</td>
-                                    <td>{{ \App\Helpers\ConstCommon::getnameByIDCategoryItem($item->id_category_item) }}</td>
                                     <td>{{$item->content_pre}}</td>
                                     <td><img width="150px" height="auto" src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}" alt=""></td>
                                     <td>

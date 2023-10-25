@@ -35,6 +35,9 @@ class ProductRepository implements ProductRepositoryInterface
     public function getAllByType($type){
         return product::where('id_category_item', $type)->get();
     }
+    public function getAllByCategory($type){
+        return product::where('id_category', $type)->get();
+    }
     public function getAllCategoryItem($key, $id){
         return product::where('id_category', $key)->where('id_category_item', $id)->limit(12)->get();
     }

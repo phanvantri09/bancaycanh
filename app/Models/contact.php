@@ -14,5 +14,6 @@ class contact extends Model
         'email',
         'tel',
         'content',
+        'status'
     ];
 }

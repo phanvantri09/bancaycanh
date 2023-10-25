@@ -55,9 +55,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Nội dung</label>
-                                    <textarea class="form-control" name="content" rows="3" placeholder="Enter ...">
-                                        {{ empty(old('content')) ? {{$data->content}} : old('content') }}
-                                    </textarea>
+                                    <textarea class="form-control" name="content" rows="3" placeholder="Enter ...">{{ empty(old('content')) ? $data->content : old('content') }}</textarea>
                                     @error('content_pre')
                                         <div class="alert alert-danger">{{ $errors->first('content_pre') }}</div>
                                     @enderror

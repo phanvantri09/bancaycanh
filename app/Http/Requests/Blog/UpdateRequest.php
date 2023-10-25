@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Contact;
+namespace App\Http\Requests\Blog;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,22 +16,22 @@ class UpdateRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
-            'name' => 'required',
-            'content' => 'required',
-            'email' => 'required',
-            // 'tel' => 'required',
+            'name' => 'required|unique:categoties',
         ];
     }
     public function messages()
     {
         return [
             'name.required' => 'Không để trống',
-            'content.required' => 'Không để trống',
-            'email.required' => 'Không để trống',
-            // 'tel.required' => 'Không để trống',
+            'name.unique' => 'Đã tồn tại',
         ];
     }
 }

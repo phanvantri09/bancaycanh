@@ -10,8 +10,8 @@ use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
 use App\Repositories\BlogRepositoryInterface;
 
-use App\Http\Requests\Product\CreateRequest;
-use App\Http\Requests\Product\UpdateRequest;
+use App\Http\Requests\Blog\CreateRequest;
+use App\Http\Requests\Blog\UpdateRequest;
 
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\ConstCommon;
@@ -49,6 +49,7 @@ class BlogController extends Controller
 
     public function store(CreateRequest $request)
     {
+        // dd($request->all());
         DB::beginTransaction();
         try {
             $nameImage = 'Blog-review'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
@@ -59,7 +60,6 @@ class BlogController extends Controller
                         'content_pre' => $request->content_pre,
                         'content_main' => $request->content_main,
                         'id_category' => $request->id_category,
-                        'id_category_item' => $request->id_category_item,
                         'img' => $nameImage
                     ];
             $this->blogRepository->create($data);
@@ -94,7 +94,6 @@ class BlogController extends Controller
                             'content_pre' => $request->content_pre,
                             'id_category' => $request->id_category,
                             'content_main' => $request->content_main,
-                            'id_category_item' => $request->id_category_item,
                             'img' => $nameImage
                         ];
             } else {
@@ -103,7 +102,6 @@ class BlogController extends Controller
                     'content_pre' => $request->content_pre,
                     'id_category' => $request->id_category,
                     'content_main' => $request->content_main,
-                    'id_category_item' => $request->id_category_item
                 ];
             }
             $this->blogRepository->update($data, $id);

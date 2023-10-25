@@ -50,7 +50,7 @@
                         <ul class="sub-menu list-unstyled p-0 m-0">
                             @foreach ($categoryDanhMucCay as $categoryDMC)
                             <li>
-                                <a href="{{ route('list_product', ['type'=>$categoryDMC->id]) }}" class="d-block text-success" title="SERVICE 1">
+                                <a href="{{ route('list_product', ['category'=>$categoryDMC->id]) }}" class="d-block text-success" title="SERVICE 1">
                                     <span>{{$categoryDMC->name}}</span>
                                 </a>
                                 @php
@@ -59,7 +59,7 @@
                                 <ul class="list-unstyled p-0 m-0">
                                     @foreach ($categoryDMCItem as $item)
                                         <li>
-                                            <a href="{{ route('list_product', ['type_item'=>$item->id]) }}" class="d-block" title="SERVICE 1">
+                                            <a href="{{ route('list_product', ['category'=>$categoryDMC->id ,'category_item'=>$item->id]) }}" class="d-block" title="SERVICE 1">
                                                 <span>{{$item->name}}</span>
                                             </a>
                                         </li>

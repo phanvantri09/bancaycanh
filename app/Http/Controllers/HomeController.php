@@ -84,15 +84,22 @@ class HomeController extends Controller
     }
     public function list_product(Request $request)
     {
-        // Thiếu category
         $category_item = [];
-        if ($request->has('category_item')) {
+        $category = [];
+        if ($request->has('category_item') && $request->has('category')) {
+            $category = $this->categoryRepository->show($request->category);
             $category_item =  $this->categoryItemRepository->show($request->category_item);
             $product = $this->productRepository->getAllByType($request->category_item);
+        } elseif ($request->has('category_item') && !$request->has('category')) {
+            $category_item =  $this->categoryItemRepository->show($request->category_item);
+            $product = $this->productRepository->getAllByType($request->category_item);
+        } elseif (!$request->has('category_item') && $request->has('category')) {
+            $category = $this->categoryRepository->show($request->category);
+            $product = $this->productRepository->getAllByCategory($request->category);
         } else {
             $product = $this->productRepository->all();
         }
-        return view('user.page.list_product', compact(['product', 'category_item']));
+        return view('user.page.list_product', compact(['product', 'category_item', 'category']));
     }
     public function contact()
     {
@@ -108,6 +115,7 @@ class HomeController extends Controller
     }
     public function content_new($id)
     {
+        ConstCommon::autoPlusViewBlog($id);
         $blogs = $this->blogRepository->show($id);
         return view('user.page.content_new', compact(['blogs']));
     }

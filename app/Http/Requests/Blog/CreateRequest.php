@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Blog;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,9 +26,9 @@ class CreateRequest extends FormRequest
         return [
             'name' => 'required|unique:products',
             'content_pre' => 'required',
-            // 'id_category' => 'required',
-            'id_category_item' => 'required',
-            'img' => 'required',
+            'id_category' => 'required',
+            // 'id_category_item' => 'required',
+            // 'img' => 'required',
 
         ];
     }
@@ -38,8 +38,8 @@ class CreateRequest extends FormRequest
             'name.required' => 'Không để trống',
             'name.unique' => 'Đã tồn tại',
             'id_category.required' => 'Không để trống',
-            'id_category_item.required' => 'Không để trống',
-            'img.required' => 'Không để trống',
+            // 'id_category_item.required' => 'Không để trống',
+            // 'img.required' => 'Không để trống',
             'content_pre.required' => 'Không để trống',
         ];
     }

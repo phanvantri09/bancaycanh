@@ -21,7 +21,7 @@ class CreateRequest extends FormRequest
         return [
             'name' => 'required',
             'content' => 'required',
-            'email' => 'required',
+            // 'email' => 'required',
             'tel' => 'required',
         ];
     }
@@ -30,7 +30,7 @@ class CreateRequest extends FormRequest
         return [
             'name.required' => 'Không để trống',
             'content.required' => 'Không để trống',
-            'email.required' => 'Không để trống',
+            // 'email.required' => 'Không để trống',
             'tel.required' => 'Không để trống',
         ];
     }

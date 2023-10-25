@@ -27,6 +27,7 @@
                                 <th>Tên</th>
                                 <th>email </th>
                                 <th>Số điện thoại</th>
+                                <th>Trạng thái</th>
                                 <th>Nội dung</th>
                                 <th></th>
                             </tr>
@@ -38,6 +39,25 @@
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->tel}}</td>
+                                    <td><div class="btn-group">
+                                        <button type="button" class="btn border dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            @if ($item->status == 1)
+                                            Chưa liên hệ
+                                            @endif
+                                            @if ($item->status == 2)
+                                            Đã liên hệ
+                                            @endif
+
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item"
+                                                @if ($item->status != 1) href="{{ route('contact.changeStatus', ['id' => $item->id,'status' => 1]) }}" @endif>Chưa liên hệ</a>
+                                            <a class="dropdown-item"
+                                                @if ($item->status != 2) href="{{ route('contact.changeStatus', ['id' => $item->id, 'status' => 2]) }}" @endif>Đã liên hệ</a>
+                                            <div class="dropdown-divider"></div>
+                                        </div>
+                                    </div></td>
                                     <td>{{$item->content}}</td>
                                     <td>
                                         <a href="{{ route('contact.show', ['id'=>$item->id]) }}" class="btn btn-app">

@@ -16,7 +16,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('category.addPost') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('category_item.addPost') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
@@ -48,9 +48,9 @@
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Loại</label>
-                                    <select name="type" class="form-control">
-                                        @foreach (\App\Helpers\ConstCommon::ListTypeCatogory as $key => $item)
-                                            <option value="{{ $item }}"> {{ $key }}</option>
+                                    <select name="id_category" class="form-control">
+                                        @foreach ($id_category as $key => $item)
+                                            <option value="{{ $item->id }}"> {{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

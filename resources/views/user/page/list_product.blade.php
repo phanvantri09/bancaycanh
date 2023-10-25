@@ -5,8 +5,15 @@
     <main>
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-                <h2>{{ $category_item->name ?? null }}</h2>
-                <a href="{{ route('home') }}">Trang chủ</a> / <a href="">Name Category</a> / <a href="{{ route('list_product', ['category_item'=>$category_item->id]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategoryItem($category_item->id)}}</a>
+                <h2>{{ $category_item->name ?? $category->name ?? null }}</h2>
+                <a href="{{ route('home') }}">Trang chủ</a>
+                @if (!empty($category->id))
+                    / <a href="">{{ \App\Helpers\ConstCommon::getnameByIDCategory($category->id) }}</a>
+                @endif
+                @if (!empty($category_item->id))
+                    / <a href="{{ route('list_product', ['category_item' => $category_item->id]) }}">
+                        {{ \App\Helpers\ConstCommon::getnameByIDCategoryItem($category_item->id) }}</a>
+                @endif
             </div>
             @if (!empty($category_item->content))
                 <div class="content-page text-justify bg-white p-2">

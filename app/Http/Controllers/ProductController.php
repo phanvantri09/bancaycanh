@@ -62,10 +62,11 @@ class ProductController extends Controller
             $nameImage = 'Product-review'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
             ConstCommon::addImageToStorage( $request->img, $nameImage );
             $request->img = $nameImage;
+            $category_item = $this->categoryItemRepository->show($request->id_category_item);
             $data = [
                         'name' => $request->name,
                         'content_pre' => $request->content_pre,
-                        'id_category' => $request->id_category,
+                        'id_category' => $category_item->id_category,
                         'id_category_item' => $request->id_category_item,
                         'img' => $nameImage
                     ];
@@ -92,13 +93,15 @@ class ProductController extends Controller
     {
         DB::beginTransaction();
         try {
+            $category_item = $this->categoryItemRepository->show($request->id_category_item);
             if ( !empty($request->img) || $request->has('img') ) {
                 $nameImage = 'Product-review'.ConstCommon::getCurrentTime().'.'.$request->img->extension();
                 ConstCommon::addImageToStorage( $request->img, $nameImage );
+
                 $data = [
                             'name' => $request->name,
                             'content_pre' => $request->content_pre,
-                            'id_category' => $request->id_category,
+                            'id_category' => $category_item->id_category,
                             'id_category_item' => $request->id_category_item,
                             'img' => $nameImage
                         ];
@@ -106,7 +109,7 @@ class ProductController extends Controller
                 $data = [
                     'name' => $request->name,
                     'content_pre' => $request->content_pre,
-                    'id_category' => $request->id_category,
+                    'id_category' => $category_item->id_category,
                     'id_category_item' => $request->id_category_item
                 ];
             }

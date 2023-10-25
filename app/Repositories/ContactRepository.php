@@ -36,4 +36,9 @@ class ContactRepository implements ContactRepositoryInterface
     public function getAllByType($type){
         return contact::where('type', $type)->get();
     }
+    public function changeStatus($id, $status){
+        $user = contact::findOrFail($id);
+        $user->status = $status;
+        return $user->save();
+    }
 }

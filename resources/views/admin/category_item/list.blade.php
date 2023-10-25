@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{ \App\Helpers\ConstCommon::getnameByTypeCategory($item->type) }}</td>
+                                    <td>{{ \App\Helpers\ConstCommon::getnameByIDCategory($item->id_category) }}</td>
                                     <td>
                                         <a href="{{ route('category_item.show', ['id'=>$item->id]) }}" class="btn btn-app">
                                             <i class="fas fa-book-open"></i> Xem
