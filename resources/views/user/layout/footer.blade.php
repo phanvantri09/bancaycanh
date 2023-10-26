@@ -9,15 +9,15 @@
                     <label for="inputName">Họ và tên</label>
                     <input type="text" name="name" class="form-control" id="inputName" placeholder="Họ và tên">
                     @error('name')
-                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-                @enderror
+                        <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                    @enderror
                 </div>
                 <div class="form-group col-md-6 col-12">
                     <label for="inputSdt">Số điện thoại</label>
                     <input type="tel" name="tel" class="form-control" id="inputSdt" placeholder="039*******">
                     @error('tel')
-                    <div class="alert alert-danger">{{ $errors->first('tel') }}</div>
-                @enderror
+                        <div class="alert alert-danger">{{ $errors->first('tel') }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -25,8 +25,8 @@
                 <label for="exampleContent">Lời nhắn</label>
                 <textarea name="content" class="form-control" id="exampleFormContent" rows="3"></textarea>
                 @error('content')
-                <div class="alert alert-danger">{{ $errors->first('content') }}</div>
-            @enderror
+                    <div class="alert alert-danger">{{ $errors->first('content') }}</div>
+                @enderror
             </div>
             <button type="submit" class="btn bg-success text-white font-weight-bold px-4 py-2 mb-2">GỬI</button>
         </form>
@@ -99,15 +99,20 @@
             <div class="col-md-3 col-sm-12 col-12">
                 <h5 class="text-success">Danh mục nổi bật</h5>
                 <div class="footer-content d-md-block d-flex flex-wrap">
-                    <p class="px-md-0 px-2"><a href="">Cây công trình</a></p>
-                    <p class="px-md-0 px-2"><a href="">Cây công trình</a></p>
-                    <p class="px-md-0 px-2"><a href="">Cây công trình</a></p>
-                    <p class="px-md-0 px-2"><a href="">Cây công trình</a></p>
+                    @php
+                        $categoryDMCItem = categoty::where('type', 1)->get();
+                    @endphp
+                    <ul class="list-unstyled p-0 m-0">
+                        @foreach ($categoryDMCItem as $item)
+                        <p class="px-md-0 px-2"><a href="{{ route('list_product', ['category' => $categoryDMC->id]) }}">{{ $item->name }}</a></p>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="bg-grey m-2 p-2">
-            <span class="text-success font-weight-bold">Khu vực phục vụ:</span> <i>Đà Nẵng, Quảng Nam, Quảng Ngãi, Huế, Bình Định...</i>
+            <span class="text-success font-weight-bold">Khu vực phục vụ:</span> <i>Đà Nẵng, Quảng Nam, Quảng Ngãi, Huế,
+                Bình Định...</i>
         </div>
     </div>
 
