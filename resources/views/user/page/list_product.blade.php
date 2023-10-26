@@ -5,7 +5,7 @@
     <main>
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-                <h2>{{ $category_item->name ?? $category->name ?? null }}</h2>
+                <h2>{{ $category_item->name ?? ($category->name ?? null) }}</h2>
                 <a href="{{ route('home') }}">Trang chủ</a>
                 @if (!empty($category->id))
                     / <a href="">{{ \App\Helpers\ConstCommon::getnameByIDCategory($category->id) }}</a>
@@ -42,13 +42,64 @@
                                 </div>
                                 <div class="product-btn-see w-50 d-flex flex-column align-items-center">
                                     <div class="btn-see-content">Xem nhanh</div>
-                                    <button class="btn-see">
+                                    <button class="btn-see" data-toggle="modal" data-target="#seeModal{{ $item->id }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                             <path
                                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                         </svg>
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="seeModal{{ $item->id }}" tabindex="-1" role="dialog"
+                            aria-labelledby="seeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-see-detail" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="seeModalLabel">Thông tin sản phẩm</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2">
+                                            <div class="slider-for">
+                                                <img src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($item->img) }}"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2 d-flex flex-column justify-content-between">
+                                            <h3 class="text-success">{{ $item->name }}</h3>
+                                            <ul>
+                                                <li><b>Giá tốt so với thị trường</b></li>
+                                                <li><b>Giao hàng toàn quốc</b> (phí theo đơn hàng)</li>
+                                                <li><b>Bảo hành uy tín</b></li>
+                                                <li><b>Cây đẹp tuyển chọn, dễ sống</b></li>
+                                                <li><b>Tặng kèm thuốc kích rễ</b></li>
+                                                <li><b>Tư vấn miễn phí trồng và chăm sóc</b></li>
+                                                <li><b>Lỗi 1 đổi 1 nếu cây không đúng quy cách</b></li>
+                                            </ul>
+                                            <p>Cây Xanh Long Nguyên cung cấp sỉ lẻ cây xanh công trình, dịch vụ cây xanh
+                                                uy tín số lượng
+                                                lớn, báo giá tốt, giao trồng uy tín.</p>
+                                            <p><b>Liên hệ: <span class="text-danger">0968060303</span></b> để được tư
+                                                vấn miễn phí.</p>
+                                            <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
+                                            <div>
+                                                <button class="btn bg-success text-white py-2 font-weight-bold">LIÊN HỆ
+                                                    ĐẶT MUA</button>
+                                            </div>
+                                            <div class="text-success">
+                                                <p class="text-center mb-0"><b>Phương thức thanh toán</b></p>
+                                                <hr>
+                                                <img src="https://caybamien.vn/wp-content/uploads/2021/07/phuong-thuc-thanh-toan-01.jpg"
+                                                    alt="" width="100%">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -76,16 +76,38 @@
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog shipping-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <div class="modal-header product-shipping">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        ...
+                                    <div class="modal-body table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                              <tr class="text-success">
+                                                <th>VÙNG</th>
+                                                <th>VÍ TRÍ</th>
+                                                <th>PHƯƠNG THỨC GIAO HÀNG</th>
+                                                <th>LOẠI HÌNH GIAO VẬN</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>Vùng còn lại</td>
+                                                <td>Mọi nơi</td>
+                                                <td>...</td>
+                                                <td>...</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Việt Nam</td>
+                                                <td>Việt Nam</td>
+                                                <td>Giao tại cửa hàng</td>
+                                                <td>...</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
                                     </div>
                                 </div>
                             </div>

@@ -47,7 +47,7 @@
                         <a  class="d-block" title="Services">
                             <span>DANH MỤC CÂY</span>
                         </a>
-                        <ul class="sub-menu list-unstyled p-0 m-0">
+                        <ul class="sub-menu menu-flex list-unstyled p-0 m-0">
                             @foreach ($categoryDanhMucCay as $categoryDMC)
                             <li>
                                 <a href="{{ route('list_product', ['category'=>$categoryDMC->id]) }}" class="d-block text-success" title="SERVICE 1">

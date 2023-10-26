@@ -84,27 +84,24 @@
                     <p><a href="">Tiêu chí bán hàng</a></p>
                     <p><a href="">Cây công trình</a></p>
                     <p><a href="">Chính sách vận chuyển</a></p>
-                    <p><a href="">Cây công trình</a></p>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6 col-6">
                 <h5 class="text-success">Về chúng tôi</h5>
                 <div class="footer-content">
-                    <p><a href="">Giới thiệu</a></p>
-                    <p><a href="">Liên hệ</a></p>
-                    <p><a href="">Cây công trình</a></p>
-                    <p><a href="">Cây công trình</a></p>
+                    <p><a href="{{ route('introduce') }}">Giới thiệu</a></p>
+                    <p><a href="{{ route('contact') }}">Liên hệ</a></p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-12 col-12">
                 <h5 class="text-success">Danh mục nổi bật</h5>
                 <div class="footer-content d-md-block d-flex flex-wrap">
                     @php
-                        $categoryDMCItem = categoty::where('type', 1)->get();
+                        $categoryDMCItem = \App\Models\categoty::where('type', 1)->get();
                     @endphp
                     <ul class="list-unstyled p-0 m-0">
                         @foreach ($categoryDMCItem as $item)
-                        <p class="px-md-0 px-2"><a href="{{ route('list_product', ['category' => $categoryDMC->id]) }}">{{ $item->name }}</a></p>
+                        <p class="px-md-0 px-2"><a href="{{ route('list_product', ['category' => $item->id]) }}">{{ $item->name }}</a></p>
                         @endforeach
                     </ul>
                 </div>
