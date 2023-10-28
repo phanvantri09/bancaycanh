@@ -998,6 +998,9 @@ body {
     .btn-contact, .btn-see{
         padding: 8px 25px;
     }
+    .new-card .new-type, .new-title{
+        font-size: 20px!important;
+    }
 }
 .zoomable {
     touch-action: manipulation;
