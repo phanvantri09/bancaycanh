@@ -350,7 +350,7 @@
                                             <a href="{{ route('content_new', ['id'=>$itm->id]) }}">
                                                 <div class="new-title">{{ $itm->name ?? null }}</div>
                                             </a>
-                                            <p class="new-content">{!! $itm->comtent_pre ?? null !!}</p>
+                                            <p class="new-content">{!! $itm->content_pre ?? null !!}</p>
                                         </div>
                                     </div>
                                 @endforeach
