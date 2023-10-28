@@ -33,11 +33,13 @@
                                 <div class="product-btn-contact w-50 d-flex flex-column align-items-center">
                                     <div class="btn-contact-content">Liên hệ</div>
                                     <button class="btn-contact">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                                            <path
-                                                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                                        </svg>
+                                        <a class="text-white" href="tel:+84372868775">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                            </svg>
+                                        </a>
                                     </button>
                                 </div>
                                 <div class="product-btn-see w-50 d-flex flex-column align-items-center">
@@ -88,8 +90,9 @@
                                                 vấn miễn phí.</p>
                                             <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
                                             <div>
-                                                <button class="btn bg-success text-white py-2 font-weight-bold">LIÊN HỆ
-                                                    ĐẶT MUA</button>
+                                                <button class="btn bg-success text-white py-2 font-weight-bold">
+                                                    <a class="text-white" href="tel:+84372868775">LIÊN HỆ</a>
+                                                </button>
                                             </div>
                                             <div class="text-success">
                                                 <p class="text-center mb-0"><b>Phương thức thanh toán</b></p>
