@@ -999,3 +999,6 @@ body {
         padding: 8px 25px;
     }
 }
+.zoomable {
+    touch-action: manipulation;
+}

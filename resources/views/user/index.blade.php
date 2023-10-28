@@ -29,7 +29,7 @@
     @yield('css')
 </head>
 
-<body>
+<body class="zoomable">
     @include('user.layout.header')
     @yield('content')
     <div class="chat-zalo">
@@ -84,6 +84,21 @@
         });
     </script>
     <script src="./js/header_menu.js"></script>
+    <script>
+        var zoomableElement = document.querySelector('.zoomable');
+        var lastTouchEnd = 0;
+
+        zoomableElement.addEventListener('touchend', function(event) {
+            var currentTime = new Date().getTime();
+            var touchEndDiff = currentTime - lastTouchEnd;
+
+            if (touchEndDiff < 300) {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định của trình duyệt
+            }
+
+            lastTouchEnd = currentTime;
+        });
+    </script>
 </body>
 
 </html>
