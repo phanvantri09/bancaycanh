@@ -176,6 +176,7 @@ header .main-menu .sub-menu.menu-flex {
 }
 
 .side-menu-logo {
+    color: #fff;
     border-bottom: 2px solid #fe8204;
     background: #008217;
 }
