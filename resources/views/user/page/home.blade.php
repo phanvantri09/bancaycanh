@@ -54,7 +54,7 @@
                                 </a>
                                 <div class="product-card-button w-100 d-flex justify-content-center">
                                     <div class="product-btn-contact w-50 d-flex flex-column align-items-center">
-                                        <div class="btn-contact-content">Liên hệ đặt mua</div>
+                                        <div class="btn-contact-content">Liên hệ</div>
                                         <button class="btn-contact">
                                             <a href="{{ route('product_detail', ['id' => $item->id]) }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -187,7 +187,7 @@
                                                 <div class="product-card-button w-100 d-flex justify-content-center">
                                                     <div
                                                         class="product-btn-contact w-50 d-flex flex-column align-items-center">
-                                                        <div class="btn-contact-content">Liên hệ đặt mua</div>
+                                                        <div class="btn-contact-content">Liên hệ</div>
                                                         <button class="btn-contact">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-bag"
