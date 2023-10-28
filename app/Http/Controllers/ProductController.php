@@ -168,7 +168,7 @@ class ProductController extends Controller
     }
     public function adddetailPost(AddDetail $request){
         if ($this->productDetailRepository->create($request->all())) {
-            return redirect()->route('product.index')->with('success', 'Xóa thành công');
+            return redirect()->route('product.index')->with('success', 'Thành công');
         }
     }
 }
