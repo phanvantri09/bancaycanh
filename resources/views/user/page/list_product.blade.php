@@ -33,7 +33,7 @@
                                 <div class="product-btn-contact w-50 d-flex flex-column align-items-center">
                                     <div class="btn-contact-content">Liên hệ</div>
                                     <button class="btn-contact">
-                                        <a href="tel:+84372868775">
+                                        <a href="tel:+84968060303">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                                 <path
@@ -91,7 +91,7 @@
                                             <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
                                             <div>
                                                 <button class="btn bg-success text-white py-2 font-weight-bold">
-                                                    <a class="text-white" href="tel:+84372868775">LIÊN HỆ</a>
+                                                    <a class="text-white" href="tel:+84968060303">LIÊN HỆ</a>
                                                 </button>
                                             </div>
                                             <div class="text-success">
