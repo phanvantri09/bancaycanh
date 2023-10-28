@@ -4,8 +4,8 @@ namespace App\Helpers;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Contracts\Routing\UrlGenerator;
-use App\Models\Categoty;
-use App\Models\Categoty_item;
+use App\Models\categoty;
+use App\Models\categoty_item;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
@@ -28,16 +28,16 @@ class ConstCommon {
         return array_search($key, ConstCommon::ListTypeCatogory);
     }
     public static function getnameByIDCategory($id){
-        return Categoty::find($id)->name ?? null;
+        return categoty::find($id)->name ?? null;
     }
     public static function getnameByIDCategoryItem($id){
-        return Categoty_item::find($id)->name ?? null;
+        return categoty_item::find($id)->name ?? null;
     }
     public static function getTypeByCategoy($id){
-        return Categoty::find($id)->type ?? null;
+        return categoty::find($id)->type ?? null;
     }
      public static function getAllCategory(){
-          return Categoty::all();
+          return categoty::all();
      }
      public static function addImageToStorage($file, $name ){
           $file->storeAs('images', $name, 'public');
