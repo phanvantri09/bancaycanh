@@ -453,7 +453,7 @@ body {
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
-    transition: background-color 0.8s ease;
+    transition: background-color 0.4s ease;
 }
 .btn-see-more-product:hover {
     background-color: rgb(211, 0, 0);
@@ -467,7 +467,7 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     border-radius: 30px;
-    transition: background-color 0.8s ease;
+    transition: background-color 0.4s ease;
 }
 .btn-see-more-new:hover {
     background-color: rgb(211, 0, 0);
@@ -1001,8 +1001,8 @@ body {
     .new-card .new-type, .new-title{
         font-size: 20px!important;
     }
-    .btn-see-more-new, .btn-see-more-new{
-        font-size: 14px!important;
+    .btn-see-more-product, .btn-see-more-new{
+        font-size: 12px!important;
     }
 }
 .zoomable {
