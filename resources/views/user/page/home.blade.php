@@ -273,7 +273,7 @@
                                 </div>
                                 <a href="{{ route('list_product', ['category_item' => $keyyy]) }}"
                                     class="d-flex justify-content-center py-3">
-                                    <button class="btn btn-see-more-product d-flex align-items-center py-3 px-4">
+                                    <button class="btn btn-see-more-product d-flex align-items-center py-md-3 px-md-4">
                                         Xem danh mục &nbsp;
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
@@ -361,7 +361,7 @@
                             </div>
 
                             <a href="{{ route('list_new', ['category'=>$key]) }}" class="d-flex justify-content-center py-3">
-                                <button class="btn btn-see-more-new  d-flex align-items-center py-3 px-4">
+                                <button class="btn btn-see-more-new  d-flex align-items-center py-md-3 px-md-4">
                                     Xem thêm &nbsp;
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">

@@ -1001,6 +1001,9 @@ body {
     .new-card .new-type, .new-title{
         font-size: 20px!important;
     }
+    .btn-see-more-new, .btn-see-more-new{
+        font-size: 14px!important;
+    }
 }
 .zoomable {
     touch-action: manipulation;
