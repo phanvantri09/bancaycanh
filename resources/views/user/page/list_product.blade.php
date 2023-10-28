@@ -91,7 +91,7 @@
                                             <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
                                             <div>
                                                 <button class="btn bg-success text-white py-2 font-weight-bold">
-                                                    <a class="text-white" href="tel:+84968060303">LIÊN HỆ</a>
+                                                    <a class="text-white" href="tel:+84968060303">LIÊN HỆ ĐẶT MUA</a>
                                                 </button>
                                             </div>
                                             <div class="text-success">
