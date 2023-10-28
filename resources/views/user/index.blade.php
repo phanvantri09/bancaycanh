@@ -34,7 +34,7 @@
     @yield('content')
     <div class="chat-zalo">
         <a href="https://zalo.me/0968060303" class="d-flex flex-column">
-            <span class="chat-content">Liên hệ ngay</span>
+            {{-- <span class="chat-content">Liên hệ ngay</span> --}}
             <img src="https://bookvexe.vn/wp-content/uploads/2023/04/tong-hop-25-mau-logo-zalo-dep-va-an-tuong_1.jpg"
                 alt="">
         </a>
