@@ -347,7 +347,7 @@ a:hover {
 }
 body {
     background-color: rgba(244, 244, 244, 0.84);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 @media (min-width: 1200px) {
     .container,
@@ -984,4 +984,12 @@ body {
 .modal-header.product-shipping{
     border-bottom: none;
     padding: 0.5rem;
+}
+@media (max-width: 767px) {
+    .side-menu-nav .main-menu > li > a {
+        font-size: 14px !important;
+    }
+    h2{
+        font-size: 1.5rem;
+    }
 }
