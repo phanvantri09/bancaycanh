@@ -56,7 +56,7 @@
                                     <div class="product-btn-contact w-50 d-flex flex-column align-items-center">
                                         <div class="btn-contact-content">Liên hệ</div>
                                         <button class="btn-contact">
-                                            <a class="text-white" href="tel:+84372868775">
+                                            <a href="tel:+84372868775">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                                     <path
@@ -192,7 +192,7 @@
                                                         class="product-btn-contact w-50 d-flex flex-column align-items-center">
                                                         <div class="btn-contact-content">Liên hệ</div>
                                                         <button class="btn-contact">
-                                                            <a class="text-white" href="tel:+84372868775">
+                                                            <a href="tel:+84372868775">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                                     fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                                                     <path
