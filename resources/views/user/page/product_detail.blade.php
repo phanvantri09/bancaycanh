@@ -53,7 +53,8 @@
                         <p><b>Liên hệ: <span class="text-danger">0968060303</span></b> để được tư vấn miễn phí.</p>
                         <p><b>Email:</b> cayxanhlongnguyen@gmail.com</p>
                         <div>
-                            <button class="btn bg-success text-white py-2 font-weight-bold">LIÊN HỆ ĐẶT MUA</button>
+                            <button class="btn bg-success text-white py-2 font-weight-bold">
+                                <a href="tel:+84372868775">LIÊN HỆ ĐẶT MUA</a></button>
                         </div>
                         <div class="text-success">
                             <p class="text-center mb-0"><b>Phương thức thanh toán</b></p>
