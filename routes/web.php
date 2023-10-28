@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+Route::fallback(function () {
+    return redirect('/')->with('error', "Bạn đã nhập sai đường dẫn");
+});
 Route::group(['prefix' => '/'], function () {
         Route::controller(HomeController::class)->group(function () {
             // danh sách
@@ -21,30 +23,13 @@ Route::group(['prefix' => '/'], function () {
 });
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login','showLoginForm')->name('login');
-    Route::post('/login','login')->name('login');
+    Route::get('/login','login')->name('login');
+    Route::post('/login','loginPost')->name('login');
     Route::get('/logout', 'logout')->name('logout');
-
-    Route::get('/register', 'showRegistrationForm')->name('register');
-    Route::post('/register', 'register');
-
-    Route::get('/shared/{token}','updateShare')->name('registerShareGet');
-    Route::post('/register/{id}', 'registerShare')->name('registerShare');
-
-    Route::get('/mang-xa-hoi/dang-nhap','redirectToGoogle')->name('loginMail');
-    Route::get('/mang-xa-hoi/dang-nhap/callback','handleGoogleCallback');
-    Route::post('/updatePassword', 'updatePassword')->name('updatePassword');
-
-    Route::get('forgot-password', 'showLinkRequestForm')->name('password.request');
-    Route::post('forgot-password', 'sendResetLinkEmail')->name('password.email');
-    Route::get('reset-password/{id_user}', 'showResetForm')->name('password.reset');
-    Route::post('reset-password', 'reset')->name('password.update');
-
-    Route::get('nhan-OTP/{number_phone}/{token}', 'GetOTP')->name('GetOTP');
-
 });
+
 // Route::group(['prefix' => 'admin', 'middleware'=>['CheckAdmin', 'CheckLoginUser']], function () {
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>['CheckLoginUser']], function () {
 
     // Route::controller(AdminController::class)->group(function () {
     //     Route::get('/','index')->name('admin');
