@@ -133,9 +133,12 @@ class HomeController extends Controller
     }
     public function search(Request $request)
     {
-        if (!empty($request->key)) {
-            $data = $this->productRepository->search($request->key);
+        $product = [];
+        $key = '';
+        if ($request->has('key')) {
+            $product = $this->productRepository->search($request->key);
+            $key = $request->key;
         }
-        return view('user.page.search', ['$data']);
+        return view('user.page.search', compact(['product', 'key']));
     }
 }
