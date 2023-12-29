@@ -17,15 +17,15 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://caybamien.vn/wp-content/themes/ocolus/images/banner-home-caybamien-moi.jpg"
+                        <img src="dist/img/slide/anh3.webp"
                             alt="">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://ktmt.vnmediacdn.com/images/2021/11/30/13-1638242620-cay-xanh-1.jpg"
+                        <img src="dist/img/slide/anh2.webp"
                             alt="">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://danviet.mediacdn.vn/2021/5/4/1-16201262148371204304011.jpg" alt="">
+                        <img src="dist/img/slide/anh4.webp" alt="">
                     </div>
                 </div>
 
