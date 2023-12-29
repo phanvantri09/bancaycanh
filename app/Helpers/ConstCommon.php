@@ -21,7 +21,7 @@ class ConstCommon {
      const TypeUser = 111;
      const TypeAdmin = 222;
      const TypeSuperAdmin = 333;
-     const ListTypeCatogory = ['Danh mục cây'=>1, 'Dự án' =>2, 'Tin tức'=>3];
+     const ListTypeCatogory = ['Danh mục cây'=>1, 'Dự án' =>2, 'Hệ Thống Vườn Ươm'=>3];
      const TypeImgae = ['slide' =>1, 'fixed' =>2 ];
 
     public static function getnameByTypeCategory($key){

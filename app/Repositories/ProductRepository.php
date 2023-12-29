@@ -55,6 +55,6 @@ class ProductRepository implements ProductRepositoryInterface
     }
 
     public function productNew (){
-        return product::orderByDesc('created_at')->limit(12)->get();
+        return product::orderByDesc('created_at')->limit(16)->get();
     }
 }

@@ -59,7 +59,7 @@
                                     <label>Loại</label>
                                     <select name="id_category" class="form-control">
                                         @foreach ($id_category as $key => $item)
-                                            <option {{$item->id ==$data->id_category ? 'selected' : ''}} value="{{ $item->id }}"> {{ $item->name }}</option>
+                                            <option {{$item->id ==$data->id_category ? 'selected' : ''}} value="{{ $item->id }}">{{ $item->type == 2 ? "Dự án" : "Hệ Thống Vườn Ươm"}} | {{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -67,6 +67,20 @@
                                     <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
                                 @enderror
                             </div>
+                            {{-- <div class="col-sm-12">
+                                <!-- select -->
+                                <div class="form-group">
+                                    <label>Loại</label>
+                                    <select name="id_category" class="form-control">
+                                        @foreach ($id_category as $key => $item)
+                                            <option {{$key ==$data->id_category ? 'selected' : ''}} value="{{ $key }}"> {{ $item }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('id_category')
+                                    <div class="alert alert-danger">{{ $errors->first('id_category') }}</div>
+                                @enderror
+                            </div> --}}
                         </div>
                         <div class="row">
                             <div class="col-sm-12">

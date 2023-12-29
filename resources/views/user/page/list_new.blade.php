@@ -5,8 +5,8 @@
     <main>
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-                <h2>Tin Tức</h2>
-                <a href="{{ route('home') }}">Trang chủ</a> / <a href="{{ route('list_new') }}">Tin tức</a> / <a href="{{ route('list_new', ['category'=>$idCate]) }}">{{$linkCategory==true ? \App\Helpers\ConstCommon::getnameByIDCategory($idCate) : ''}}</a>
+                <h2>Hệ Thống Vườn Ươm</h2>
+                <a href="{{ route('home') }}">Trang chủ</a> / <a href="{{ route('list_new') }}">Hệ Thống Vườn Ươm</a> / <a href="{{ route('list_new', ['category'=>$idCate]) }}">{{$linkCategory==true ? \App\Helpers\ConstCommon::getnameByIDCategory($idCate) : ''}}</a>
             </div>
 
             <div class="bg-white my-2">

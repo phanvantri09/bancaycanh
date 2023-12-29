@@ -5,8 +5,8 @@
 <main>
     <div class="container">
         <div class="title-page pt-md-4 pt-2 pb-2 text-success">
-            <h2>Tin Tức</h2>
-            <a href="">Trang chủ</a> / <a href="">Tin Tức</a> / <a href="">Tin tức ....</a>
+            <h2>Hệ Thống Vườn Ươm</h2>
+            <a href="">Trang chủ</a> / <a href="">Hệ Thống Vườn Ươm</a> / <a href="">Hệ Thống Vườn Ươm ....</a>
         </div>
 
         <div class="bg-white my-2">

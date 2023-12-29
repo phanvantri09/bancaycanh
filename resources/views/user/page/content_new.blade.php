@@ -9,7 +9,7 @@
                     @if (\App\Helpers\ConstCommon::getTypeByCategoy($blogs->id_category) == 2)
                         Dự án
                     @elseIf(\App\Helpers\ConstCommon::getTypeByCategoy($blogs->id_category) == 3)
-                        Tin tức
+                        Hệ Thống Vườn Ươm
                     @else
                         Danh mục cây
                     @endif

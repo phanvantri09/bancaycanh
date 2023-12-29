@@ -40,7 +40,7 @@
             <!-- sleder end -->
             <div class="bg-white my-2">
                 <div class="d-flex justify-content-between align-items-center p-2 border-bottom">
-                    <h2 class="text-success">Cây Nổi Bật</h2>
+                    <h2 class="text-success">Danh Mục Cây</h2>
                     <a href="{{ route('list_product') }}" class="text-success">Xem thêm cây>></a>
                 </div>
                 <div class="row p-1">
@@ -140,7 +140,7 @@
             @php
                 $index = 0;
             @endphp
-            @foreach ($cacheProductCategory as $keyy => $cacheProductCatego)
+            {{-- @foreach ($cacheProductCategory as $keyy => $cacheProductCatego)
                 @php
                     $index++;
                 @endphp
@@ -217,7 +217,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="modal fade" id="seeModal{{ $product->id }}" tabindex="-1" role="dialog"
+                                        <<-- <div class="modal fade" id="seeModal{{ $product->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="seeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-see-detail" role="document">
                                                 <div class="modal-content">
@@ -267,7 +267,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> --}}
+                                        </div> -->>
                                     @endforeach
 
                                 </div>
@@ -302,11 +302,22 @@
                         </div>
                     </div>
                 @endif
-            @endforeach
-
+            @endforeach --}}
             <div class="bg-white my-2">
+                <div class="d-md-flex d-block baner-introduction">
+                    <div class="col-md-6 col-sm-12 px-0 py-md-0 pb-2 baner-introduction-border">
+                        <img src="https://images.pexels.com/photos/1796727/pexels-photo-1796727.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="">
+                    </div>
+                    <div class="col-md-6 col-sm-12 px-0 py-md-0 pb-2 baner-introduction-border">
+                        <img src="https://3.bp.blogspot.com/-IOHd-JuQRqA/W1WDy1GiKKI/AAAAAAAABfU/m7022vox5dMp2IWBVonB489GBPediQELgCLcBGAs/s640/hinh-anh-hoa-dep-1.jpg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="bg-white my-2">
                 <div class="d-lg-flex d-block justify-content-between align-items-center py-md-2 py-0 px-2">
-                    <h2 class="text-success">Tin tức - Sự kiện</h2>
+                    <h2 class="text-success">Hệ Thống Vườn Ươm - Sự kiện</h2>
                     <!-- Nav tabs -->
                     @php
                         $countttt = 0;
@@ -380,7 +391,7 @@
                         sdfsd
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </main>
 @endsection

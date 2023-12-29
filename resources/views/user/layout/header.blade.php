@@ -2,23 +2,24 @@
 @php
    use App\Models\categoty;
    use App\Models\categoty_item;
-
+   use App\Models\product;
    $category_item = categoty_item::all();
    $categoryDanhMucCay = categoty::where('type',1)->get();
    $categoryDuAn = categoty::where('type',2)->get();
    $categoryTinTuc = categoty::where('type',3)->get();
+
 @endphp
 <header class="px-2 py-3 py-lg-0 px-sm-0">
     <div class="container">
         <div class="row align-items-center justify-content-between pt-lg-3 pt-0">
-            <div class="side-menu-close d-flex d-lg-none col-3 flex-wrap flex-column justify-content-center">
+            <div class="side-menu-close d-flex d-lg-none col-2 flex-wrap flex-column justify-content-center">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <a href="{{ route('home') }}" title="Logo"
-                class="header-logo d-flex justify-content-lg-start justify-content-center col-lg-2 col-6">
-                Logo
+            <a href="{{ route('home') }}" title="Cây Xanh Long Nguyên"
+                class="header-logo d-flex text-lg-left text-center justify-content-lg-start justify-content-center col-lg-2 col-8">
+                Cây Xanh Long Nguyên
             </a>
 
             <form class="form-inline form-search col-lg-9 justify-content-center d-lg-flex d-none"
@@ -36,7 +37,7 @@
                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                 </svg>
             </div>
-            <nav class="d-none d-lg-block">
+            {{-- <nav class="d-none d-lg-block">
                 <ul class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0">
                     <li class="active">
                         <a href="{{ route('home') }}" class="d-block" title="Home">
@@ -72,7 +73,7 @@
 
                     <li>
                         <a href="{{ route('list_new', ['type'=>3]) }}" class="d-block" title="Services">
-                            <span>TIN TỨC</span>
+                            <span>Hệ Thống Vườn Ươm</span>
                         </a>
                         <ul class="sub-menu list-unstyled p-0 m-0">
                             @foreach ($categoryTinTuc as $categoryTT)
@@ -100,6 +101,62 @@
                         </a>
                     </li>
                 </ul>
+            </nav> --}}
+            <nav class="d-none d-lg-block">
+                <ul class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0">
+                    <li class="active">
+                        <a href="{{ route('home') }}" class="d-block" title="Home">
+                            <span>TRANG CHỦ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('introduce') }}" class="d-block" title="Blog">
+                            <span>GIỚI THIỆU</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  class="d-block" title="Services">
+                            <span>DANH MỤC CÂY</span>
+                        </a>
+                        @php
+                            $product = product::all();
+                        @endphp
+                        <ul class="sub-menu menu-flex list-unstyled p-0 m-0">
+                            @foreach ($product as $item)
+                            <li>
+                                <a href="{{ route('list_product', ['product_detail'=>$item->id]) }}" class="d-block text-success" title="SERVICE 1">
+                                    <span>{{$item->name}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{ route('list_new', ['type'=>3]) }}" class="d-block" title="Services">
+                            <span>HỆ THỐNG VƯỜN ƯƠM</span>
+                        </a>
+                        {{-- <ul class="sub-menu list-unstyled p-0 m-0">
+                            @foreach ($categoryTinTuc as $categoryTT)
+                            <li>
+                                <a href="{{ route('list_new', ['type'=>3]) }}" class="d-block text-success" title="SERVICE 1">
+                                    <span>{{$categoryTT->name}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul> --}}
+                    </li>
+                    <li>
+                        <a href="{{ route('list_project', ['type'=>2]) }}" class="d-block" title="About">
+                            <span>DỰ ÁN TIÊU BIỂU</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('contact') }}" class="d-block" title="Contact">
+                            <span>LIÊN HỆ</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
 
         </div>
@@ -115,8 +172,8 @@
 
 <!-- side menu start -->
 <div class="side-menu-wrap">
-    <a href="{{ route('home') }}" title="Logo" class="side-menu-logo d-flex justify-content-center py-3">
-        Logo
+    <a href="{{ route('home') }}" title="Cây Xanh Long Nguyên" class="side-menu-logo d-flex justify-content-center py-3">
+        Cây Xanh Long Nguyên
     </a>
     <nav class="side-menu-nav">
         <!-- auto generated side menu from top header menu -->

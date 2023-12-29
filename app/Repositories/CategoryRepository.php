@@ -38,4 +38,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function getAllPluckID($type){
         return categoty::where('type', $type)->get()->pluck('id')->toArray();
     }
+    public function byType($arr){
+        return categoty::whereIn('type', $arr)->get();
+    }
 }

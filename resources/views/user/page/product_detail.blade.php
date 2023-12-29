@@ -6,13 +6,14 @@
         <div class="container">
             <div class="title-page pt-md-4 pt-2 pb-2 text-success">
                 <a href="{{ route('home') }}">Trang chủ</a> /
-                <a href="{{ route('list_product', ['category'=>$product->id_category]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}</a> /
-                <a href="{{ route('list_product', ['category_item'=>$product->id_category_item]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</a> /
+                <a href="{{ route('list_product') }}">Danh mục cây</a> /
+                {{-- <a href="{{ route('list_product', ['category'=>$product->id_category]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}</a> /
+                <a href="{{ route('list_product', ['category_item'=>$product->id_category_item]) }}">{{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</a> / --}}
                 <a href="{{ route('product_detail', ['id'=>$product->id]) }}">{{$product->name}}</a>
             </div>
 
             <div class="bg-white my-2 rounded product-detail">
-                <div class="row p-2">
+                <div class="row p-2 pb-4">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-4 py-2">
                         <div class="slider-for">
                             <img src="{{\App\Helpers\ConstCommon::getLinkImageToStorage($product->img) }}"
@@ -114,7 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p><span class="font-weight-bold text-success">Danh mục: </span>{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}, {{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</p>
+                        {{-- <p><span class="font-weight-bold text-success">Danh mục: </span>{{\App\Helpers\ConstCommon::getnameByIDCategory($product->id_category) }}, {{\App\Helpers\ConstCommon::getnameByIDCategoryItem($product->id_category_item) }}</p> --}}
 
                     </div>
                 </div>

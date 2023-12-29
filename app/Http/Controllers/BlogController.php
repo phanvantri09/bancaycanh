@@ -42,9 +42,10 @@ class BlogController extends Controller
 
     public function create()
     {
-        $id_category = $this->categoryRepository->all();
-        $id_category_item = $this->categoryItemRepository->all();
-        return view('admin.blog.add', compact(['id_category','id_category_item']));
+        $id_category = $this->categoryRepository->byType([2,3]);
+        // const ListTypeCatogory = ['Danh mục cây'=>1, 'Dự án' =>2, 'Hệ Thống Vườn Ươm'=>3];
+        // $id_category = ['2'=>"Dự án", '3'=>"Hệ Thống Vườn Ươm"];
+        return view('admin.blog.add', compact(['id_category']));
     }
 
     public function store(CreateRequest $request)
@@ -75,7 +76,8 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $id_category = $this->categoryRepository->all();
+        $id_category = $this->categoryRepository->byType([2,3]);
+        // $id_category = ['2'=>"Dự án", '3'=>"Hệ Thống Vườn Ươm"];
         $id_category_item = $this->categoryItemRepository->all();
         $data = $this->blogRepository->show($id);
         return view('admin.blog.edit', compact(['id_category','id_category_item', 'data']));

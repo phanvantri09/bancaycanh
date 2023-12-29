@@ -82,50 +82,6 @@
 
                 <li class="nav-item">
                     <a   class="nav-link">
-                        <i class="fas fa-users"></i>
-                        <p>
-                            Người dùng
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('user.add') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a   class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách</p>
-                            </a>
-                            <ul>
-                                <a href="{{ route('user.list', ['type' => \App\Helpers\ConstCommon::TypeUser]) }}"
-                                    class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>User</p>
-                                </a>
-                            </ul>
-                            <ul>
-                                <a href="{{ route('user.list', ['type' => 3]) }}"
-                                    class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>User được giới thiệu</p>
-                                </a>
-                            </ul>
-                            <ul>
-                                <a href="{{ route('user.list', ['type' => \App\Helpers\ConstCommon::TypeAdmin]) }}"
-                                    class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Admin</p>
-                                </a>
-                    </ul>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a   class="nav-link">
                         <i class="fas fa-boxes"></i>
                         <p>
                             Loại
@@ -147,7 +103,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a   class="nav-link">
                         <i class="fas fa-boxes"></i>
                         <p>
@@ -169,7 +125,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a   class="nav-link">
                         <i class="fas fa-glass-whiskey"></i>

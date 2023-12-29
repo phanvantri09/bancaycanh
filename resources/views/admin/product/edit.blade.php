@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12">
+                            {{-- <div class="col-sm-12">
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>Loại thành phần</label>
@@ -56,7 +56,7 @@
                                 @error('id_category_item')
                                     <div class="alert alert-danger">{{ $errors->first('id_category_item') }}</div>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="col-sm-12">
                                 <!-- select -->
                                 <img height="200px" width="230px" src="{{ \App\Helpers\ConstCommon::getLinkImageToStorage($data->img ?? null) }}" alt="">

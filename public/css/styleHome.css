@@ -8,12 +8,17 @@ a:hover {
 header .header-logo {
     color: #001b4f;
     font-weight: 700;
-    font-size: 23px;
+    font-size: 26px;
     transition: 0.4s;
     -webkit-transition: 0.4s;
     -moz-transition: 0.4s;
     -ms-transition: 0.4s;
     -o-transition: 0.4s;
+}
+@media (max-width: 768px) {
+    header .header-logo{
+        font-size: 20px;
+    }
 }
 
 header {
@@ -128,15 +133,17 @@ header .side-menu-close span {
 
 
 header .main-menu > li:hover .sub-menu.menu-flex {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
+    height: 300px;
+    overflow: auto;
 }
 header .main-menu .sub-menu.menu-flex {
     display: none;
     position: absolute;
     left: 0;
     top: 100%;
-    width: 700px;
+    width: 400px;
     overflow: hidden;
     border-top: 2px solid #f49306;
     background: #fff;
@@ -915,7 +922,7 @@ body {
 .chat-zalo {
     position: fixed;
     bottom: 2%;
-    right: 8%;
+    right: 2%;
     z-index: 1111111;
     animation: shake 0.5s ease-in-out infinite, jump 1s infinite;
 }
