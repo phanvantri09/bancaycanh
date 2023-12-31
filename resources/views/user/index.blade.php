@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
     <title>Web Cây Xanh</title>
-    {{-- <link rel="icon" type="image/x-icon" href="{{ asset('/dist/img/logo.png') }}"> --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('/dist/img/logo.jpg') }}">
     <base href="{{ URL::asset('/') }}" target="_top">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
