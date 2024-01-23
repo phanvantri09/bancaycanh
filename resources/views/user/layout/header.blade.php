@@ -124,7 +124,7 @@
                         <ul class="sub-menu menu-flex list-unstyled p-0 m-0">
                             @foreach ($product as $item)
                             <li>
-                                <a href="{{ route('list_product', ['product_detail'=>$item->id]) }}" class="d-block text-success" title="SERVICE 1">
+                                <a href="{{ route('product_detail', ['id'=>$item->id]) }}" class="d-block text-success" title="SERVICE 1">
                                     <span>{{$item->name}}</span>
                                 </a>
                             </li>
